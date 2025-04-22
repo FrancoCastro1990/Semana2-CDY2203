@@ -1,4 +1,4 @@
-package com.duoc.backend.medication;
+package com.duoc.backend.Medication;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import com.duoc.backend.medication.Medication;
+import com.duoc.backend.Medication.Medication;
 
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
@@ -13,7 +13,7 @@ import com.itextpdf.layout.Document;
 import com.itextpdf.kernel.pdf.PdfWriter;
 import java.io.ByteArrayOutputStream;
 import com.itextpdf.layout.element.Table;
-import com.duoc.backend.care.Care;
+import com.duoc.backend.Care.Care;
 
 
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.duoc.backend.patient;
+package com.duoc.backend.Patient;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;

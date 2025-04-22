@@ -1,4 +1,4 @@
-package com.duoc.backend.care;
+package com.duoc.backend.Care;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

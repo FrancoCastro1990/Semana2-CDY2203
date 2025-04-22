@@ -1,4 +1,4 @@
-package com.duoc.backend.appointment;
+package com.duoc.backend.Appointment;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

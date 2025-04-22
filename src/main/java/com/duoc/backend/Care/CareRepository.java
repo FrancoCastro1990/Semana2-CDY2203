@@ -1,4 +1,4 @@
-package com.duoc.backend.care;
+package com.duoc.backend.Care;
 
 import org.springframework.data.repository.CrudRepository;
 

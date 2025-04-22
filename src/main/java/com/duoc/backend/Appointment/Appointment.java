@@ -1,4 +1,4 @@
-package com.duoc.backend.appointment;
+package com.duoc.backend.Appointment;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
