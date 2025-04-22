@@ -8,6 +8,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.util.HtmlUtils;
 
 
 @RestController
@@ -31,9 +32,9 @@ public class LoginController {
         if (!userDetails.getPassword().equals(loginRequest.getPassword())) {
             throw new RuntimeException("Invalid login");
         }
-
         String token = jwtAuthtenticationConfig.getJWTToken(loginRequest.getUsername());
-        return token;
+        return HtmlUtils.htmlEscape(token);
+    
     }
 
 }
