@@ -13,6 +13,11 @@ public class Medication {
     private String name;
     private Double cost;
 
+
+    public Medication(String name, double price) {
+        this.name = name;
+        this.cost = price;
+    }
     // Getters and Setters
     public Long getId() {
         return id;

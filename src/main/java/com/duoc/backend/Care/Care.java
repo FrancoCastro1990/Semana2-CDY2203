@@ -13,6 +13,11 @@ public class Care {
     private String name;
     private Double cost;
 
+    public Care(String description, double cost) {
+        this.name = description;
+        this.cost = cost;
+    }
+
     // Getters and Setters
     public Long getId() {
         return id;

@@ -37,6 +37,14 @@ public class Invoice {
 
     private Double totalCost;
 
+    public Invoice(Long id, String patientName, LocalDate date, List<Care> cares, List<Medication> medications) {
+        this.id = id;
+        this.patientName = patientName;
+        this.date = date;
+        this.cares = cares;
+        this.medications = medications;
+    }
+
     // Getters and Setters
     public Long getId() {
         return id;
