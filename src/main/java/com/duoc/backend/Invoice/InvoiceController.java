@@ -12,6 +12,8 @@ import com.itextpdf.layout.element.Paragraph;
 import com.itextpdf.layout.Document;
 import com.itextpdf.kernel.pdf.PdfWriter;
 import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+
 import com.itextpdf.layout.element.Table;
 import com.duoc.backend.Care.Care;
 
@@ -104,7 +106,7 @@ public class InvoiceController {
             return ResponseEntity.ok()
                     .headers(headers)
                     .body(out.toByteArray());
-        } catch (Exception e) {
+        } catch (IOException e) {
             return ResponseEntity.status(500).build();
         }
     }

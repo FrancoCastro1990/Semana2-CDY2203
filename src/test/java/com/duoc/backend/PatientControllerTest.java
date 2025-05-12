@@ -4,9 +4,9 @@ import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-import com.duoc.backend.patient.PatientService;
-import com.duoc.backend.patient.PatientController;
-import com.duoc.backend.patient.Patient;
+import com.duoc.backend.Patient.PatientService;
+import com.duoc.backend.Patient.PatientController;
+import com.duoc.backend.Patient.Patient;
 
 import java.util.Arrays;
 import java.util.List;

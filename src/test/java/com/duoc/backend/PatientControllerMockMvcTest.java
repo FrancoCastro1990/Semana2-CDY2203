@@ -1,7 +1,7 @@
 package com.duoc.backend;
 
-import com.duoc.backend.patient.PatientController;
-import com.duoc.backend.patient.PatientService;
+import com.duoc.backend.Patient.PatientController;
+import com.duoc.backend.Patient.PatientService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
@@ -10,7 +10,7 @@ import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
 import org.springframework.test.web.servlet.MockMvc;
-import com.duoc.backend.patient.Patient;
+import com.duoc.backend.Patient.Patient;
 
 import java.util.Arrays;
 

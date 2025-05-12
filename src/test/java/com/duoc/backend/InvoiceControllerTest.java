@@ -1,10 +1,11 @@
 package com.duoc.backend;
 
+import com.duoc.backend.Care.Care;
 import com.duoc.backend.Invoice.Invoice;
 import com.duoc.backend.Invoice.InvoiceController;
 import com.duoc.backend.Invoice.InvoiceService;
-import com.duoc.backend.care.Care;
-import com.duoc.backend.medication.Medication;
+import com.duoc.backend.Medication.Medication;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;

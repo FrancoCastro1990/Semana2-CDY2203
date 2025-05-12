@@ -6,6 +6,8 @@ import com.duoc.backend.Medication.Medication;
 import jakarta.persistence.*;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 @Entity
@@ -41,8 +43,8 @@ public class Invoice {
         this.id = id;
         this.patientName = patientName;
         this.date = date;
-        this.cares = cares;
-        this.medications = medications;
+        this.cares = new ArrayList<>(cares);
+        this.medications = new ArrayList<>(medications);
     }
 
     // Getters and Setters
@@ -79,19 +81,20 @@ public class Invoice {
     }
 
     public List<Care> getCares() {
-        return cares;
+       return Collections.unmodifiableList(cares);
     }
 
     public void setCares(List<Care> cares) {
-        this.cares = cares;
+        this.cares = new ArrayList<>(cares);   
+        
     }
 
     public List<Medication> getMedications() {
-        return medications;
+        return Collections.unmodifiableList(medications);
     }
 
     public void setMedications(List<Medication> medications) {
-        this.medications = medications;
+        this.medications = new ArrayList<>(medications);  
     }
 
     public Double getTotalCost() {
