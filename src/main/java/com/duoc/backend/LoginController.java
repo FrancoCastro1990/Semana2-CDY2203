@@ -1,10 +1,14 @@
 package com.duoc.backend;
-import com.duoc.backend.JWTAuthenticationConfig;
 import com.duoc.backend.user.MyUserDetailsService;
 import com.duoc.backend.user.User;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,26 +19,31 @@ import org.springframework.web.util.HtmlUtils;
 public class LoginController {
 
     @Autowired
-    JWTAuthenticationConfig jwtAuthtenticationConfig;
+    JWTAuthenticationConfig jwtAuthenticationConfig;
 
     @Autowired
     private MyUserDetailsService userDetailsService;
 
     @PostMapping("login")
-    public String login(@RequestBody User loginRequest) {
+    public ResponseEntity<?> login(@RequestBody User loginRequest) {
+        try {
+            final UserDetails userDetails = userDetailsService.loadUserByUsername(loginRequest.getUsername());
+            if (userDetails == null) {
+                return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid credentials");
+            }
 
-        /**
-        * En el ejemplo no se realiza la correcta validación del usuario
-        */
+            PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
-        final UserDetails userDetails = userDetailsService.loadUserByUsername(loginRequest.getUsername());
+            if (!passwordEncoder.matches(loginRequest.getPassword(), passwordEncoder.encode(userDetails.getPassword()))) {
+                return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid credentials");
+            }
 
-        if (!userDetails.getPassword().equals(loginRequest.getPassword())) {
-            throw new RuntimeException("Invalid login");
+            String token = jwtAuthenticationConfig.getJWTToken(loginRequest.getUsername());
+            return ResponseEntity.ok(HtmlUtils.htmlEscape(token));
+        } catch (UsernameNotFoundException e) {
+            // Mismo tiempo de respuesta para usuario no encontrado
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid credentials");
         }
-        String token = jwtAuthtenticationConfig.getJWTToken(loginRequest.getUsername());
-        return HtmlUtils.htmlEscape(token);
-    
     }
 
 }
