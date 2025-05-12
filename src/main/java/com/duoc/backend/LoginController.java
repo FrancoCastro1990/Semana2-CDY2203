@@ -34,7 +34,7 @@ public class LoginController {
 
             PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
-            if (!passwordEncoder.matches(loginRequest.getPassword(), passwordEncoder.encode(userDetails.getPassword()))) {
+            if (!passwordEncoder.matches(loginRequest.getPassword(), userDetails.getPassword())) {
                 return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid credentials");
             }
 
