@@ -86,7 +86,7 @@
 		<dependency>
 			<groupId>com.itextpdf</groupId>
 			<artifactId>bouncy-castle-adapter</artifactId>
-			<version>9.1.0  </version>
+			<version>9.2.0</version>
 		</dependency>
 		<dependency>
     		<groupId>org.jacoco</groupId>
